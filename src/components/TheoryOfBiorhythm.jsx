@@ -2,7 +2,8 @@
 
 function TheoryOfBiorhythm() {
     return (
-      <div className="m-10">
+      <div>
+      <div className='m-8 p-5 shadow-2xl bg-gray-100 text-black font-semibold font-serif'>
         <h1 className="text-blue-600 text-4xl font-semibold">The theory of Biorhythms</h1>
         <p className='text-xl mt-4 mb-5'>
           Biorhythms, a concept stemming from the 19th century, 
@@ -21,7 +22,7 @@ function TheoryOfBiorhythm() {
         <p className='text-xl mt-4 mb-5'>
           Theories state the equations for the cycles as following
         </p>
-        <ul className="text-lg text-gray-800 ml-8">
+        <ul className="text-lg ml-8 font-bold">
           <li>.physical sin(2Πt/23)</li>
           <li>.emotional sin(2Πt/28)</li>
           <li>.intellectual sin(2Πt/33)</li>
@@ -31,6 +32,7 @@ function TheoryOfBiorhythm() {
           fascinating rhythm to human abillites and behaviors. These cycles, aligning every 21,252 days (approximately 58.2 years), underscore a deep-rooted periodicity in human existence,
           influencing our day-to-day potential and well- beging.
         </p>
+      </div>
       </div>
     )
   }

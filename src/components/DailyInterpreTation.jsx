@@ -46,17 +46,17 @@ function DailyInterpreTation({physical,emotional, intellectual,average}) {
 const date=new Date().toDateString()
 
   return (
-    <div className="p-10">
-      <div>
-         <h1 className="text-blue-500 text-4xl font-semibold text-center">Daily Interpretation</h1>
+    <div className="p-10 ">
+      <div className="p-3 shadow-2xl bg-gray-100 text-black font-semibold font-serif">
+         <h1 className="text-blue-500 text-3xl font-semibold text-center">Daily Interpretation</h1>
          <h1 className="text-xl text-blue-500 font-medium text-center">{date}</h1>
          {/* for chart */}
-         <div className='h-96 w-full'> 
-        <Bar data={data} options={options} />
+         <div> 
+        <Bar height={200} data={data} options={options} />
       </div>
       </div>
       
-      <div>
+      <div className='mt-10 shadow-2xl bg-gray-100 text-black font-semibold font-serif p-4'>
          <h1 className="text-red-500 text-4xl font-semibold">Physical</h1>
          <p className='text-xl mt-4 mb-5'>During the low phase of your Physical cycle, energy and vitality may feel depleted, leading
           to fatigue. This time calls for rest and recuperation, as physical and sexual activity interest

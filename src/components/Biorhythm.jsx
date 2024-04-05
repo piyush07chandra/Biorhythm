@@ -96,23 +96,25 @@ const BiorythmCalculator = () => {
   return (
     <>
     <div>
-    <div className='bg-green-200 pb-10'>
-    <label className='text-center text-red-500 text-3xl'>Your Date of Birth:</label>
-      <input className='text-3xl bg-green-600 text-white' type="date" value={dob} onChange={handleDobChange} />
+    <div className='shadow-2xl bg-gray-100 text-black font-semibold font-serif pb-10 p-2'>
+    <label className='text-center   text-black font-semibold font-serif text-2xl'>Your Date of Birth:  </label>
+      <input className='text-3xlshadow-2xl bg-gray-600 text-white font-semibold font-serif ml-2' type="date" value={dob} onChange={handleDobChange} />
 
     </div>
-      
-      <canvas ref={chartRef} width="400" height="100"></canvas>
       <div>
-      <h1 className='text-4xl font-semibold text-red-500'>physical:{Math.floor(physical[0])}</h1>
-      <h1 className='text-4xl font-semibold text-blue-500'>Emotional:{Math.floor(emotional[0])}</h1>
-      <h1 className='text-4xl font-semibold text-gredn-500'>Intellectual:{Math.floor(intellectual[0])}</h1>
-      <h1 className='text-4xl font-semibold text-gray-500'>Average:{Math.floor(average[0])}</h1>
+      <canvas className='canvas' style={{height:'150px'}}  ref={chartRef}  ></canvas>
+      </div>
+    
+      <div className='m-4 p-2 shadow-2xl bg-gray-100'>
+      <h1 className='text-3xl font-semibold text-red-500'>physical:{Math.floor(physical[0])}</h1>
+      <h1 className='text-3xl font-semibold text-blue-500'>Emotional:{Math.floor(emotional[0])}</h1>
+      <h1 className='text-3xl font-semibold text-gredn-500'>Intellectual:{Math.floor(intellectual[0])}</h1>
+      <h1 className='text-3xl font-semibold text-gray-500'>Average:{Math.floor(average[0])}</h1>
       </div>
       
     </div>
 
-    <div className='p-9'>
+    <div className='p-9 m-2 shadow-2xl bg-gray-100 text-black font-semibold font-serif'>
        <h1 className='text-4xl text-blue-800 font-bold mt-8'>The Biorhythms Cycles:</h1>
        <h1 className='text-3xl text-red-600 font-semibold mt-8'>The Physical Cycle</h1>
        <p className='text-xl mt-4'>The Physical cycle, with its 23-day span, touches upon our bodys stamina, strength, and overall
