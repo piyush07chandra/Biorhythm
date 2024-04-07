@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto';
 import DailyInterpreTation from './DailyInterpreTation';
 
 const BiorythmCalculator = () => {
+
   const [dob, setDob] = useState('');
   const [physical, setPhysical] = useState([]);
   const [emotional, setEmotional] = useState([]);
@@ -11,11 +12,27 @@ const BiorythmCalculator = () => {
   const chartRef = useRef(null);
 
   useEffect(() => {
+    
     const ctx = chartRef.current.getContext('2d');
+    var options = {
+      timeZone: 'Asia/Kolkata', // Set the timezone to Indian Standard Time
+      month: 'long',             // Display full month name (e.g., "April")
+      day: 'numeric'             // Display the day of the month (e.g., "6")
+  };
+  
+    var labels = [...Array(31).keys()].map((i) => {
+      var currentDate = new Date();
+      currentDate.setDate(currentDate.getDate() + i);
+      var month = currentDate.toLocaleString('en-IN', options);
+      return   month;
+  });
+
+// Adjust labels to wrap around the month
+
     const chartInstance = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: [...Array(31).keys()].map((i) => i + 1),
+        labels:labels,
         datasets: [
           {
             label: 'Physical',
@@ -74,9 +91,10 @@ const BiorythmCalculator = () => {
     setDob(newDob);
     calculateBiorythm(newDob);
   };
+ 
 
   const calculateBiorythm = (dob) => {
-    if (!dob) return;
+    if (!dob) return ;
 
     const millisecondsInDay = 1000 * 60 * 60 * 24;
     const daysSinceBirth = (Date.now() - new Date(dob).getTime()) / millisecondsInDay;
@@ -84,7 +102,6 @@ const BiorythmCalculator = () => {
     const physicalData = [...Array(31)].map((_, index) => Math.sin((2 * Math.PI * (daysSinceBirth + index)) / 23) * 100);
     const emotionalData = [...Array(31)].map((_, index) => Math.sin((2 * Math.PI * (daysSinceBirth + index)) / 28) * 100);
     const intellectualData = [...Array(31)].map((_, index) => Math.sin((2 * Math.PI * (daysSinceBirth + index)) / 33) * 100);
-
     const averageData = physicalData.map((value, index) => (value + emotionalData[index] + intellectualData[index]) / 3);
 
     setPhysical(physicalData);
@@ -92,23 +109,32 @@ const BiorythmCalculator = () => {
     setIntellectual(intellectualData);
     setAverage(averageData);
   };
-
+  var optionss = {
+    timeZone: 'Asia/Kolkata', // Set the timezone to Indian Standard Time
+    weekday: 'long',           // Display full weekday name (e.g., "Monday")
+    year: 'numeric',           // Display the full numeric year (e.g., "2024")
+    month: 'long',             // Display full month name (e.g., "April")
+    day: 'numeric'             // Display the day of the month (e.g., "6")
+};
+const currentDate=new Date().toLocaleDateString('en-IN', optionss);
   return (
     <>
     <div>
     <div className='shadow-2xl bg-gray-100 text-black font-semibold font-serif pb-10 p-2'>
     <label className='text-center   text-black font-semibold font-serif text-2xl'>Your Date of Birth:  </label>
       <input className='text-3xlshadow-2xl bg-gray-600 text-white font-semibold font-serif ml-2' type="date" value={dob} onChange={handleDobChange} />
+ 
 
     </div>
       <div>
       <canvas className='canvas' style={{height:'150px'}}  ref={chartRef}  ></canvas>
       </div>
     
-      <div className='m-4 p-2 shadow-2xl bg-gray-100'>
+      <div className='m-4 p-2 shadow-2xl bg-gray-100 text-center'>
+      <h1 className='text-2xl font-bold'>{currentDate}</h1>
       <h1 className='text-3xl font-semibold text-red-500'>physical:{Math.floor(physical[0])}</h1>
       <h1 className='text-3xl font-semibold text-blue-500'>Emotional:{Math.floor(emotional[0])}</h1>
-      <h1 className='text-3xl font-semibold text-gredn-500'>Intellectual:{Math.floor(intellectual[0])}</h1>
+      <h1 className='text-3xl font-semibold text-green-700'>Intellectual:{Math.floor(intellectual[0])}</h1>
       <h1 className='text-3xl font-semibold text-gray-500'>Average:{Math.floor(average[0])}</h1>
       </div>
       
