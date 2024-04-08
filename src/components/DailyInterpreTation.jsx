@@ -10,9 +10,8 @@ function DailyInterpreTation({physical,emotional, intellectual,average}) {
       {
         label: 'Values',
         backgroundColor: ['red', 'skyblue', 'green', 'gray'],
-        borderColor: 'rgba(0,0,0,0)',
         borderWidth: 1,
-        hoverBackgroundColor: ['red', 'lightblue', 'lightgreen', 'lightgray'],
+        hoverBackgroundColor: ['darkred', 'lightblue', 'lightgreen', 'lightgray'],
         data: [physical, emotional, intellectual, average], // Example values
       },
     ],
@@ -54,16 +53,16 @@ const date=new Date().toLocaleDateString('en-IN', optionss);
 
   return (
     <div className="p-10 ">
-      <div className="p-3 shadow-2xl bg-gray-100 text-black font-semibold font-serif">
+      <div className="p-3 shadow-3xl shadow-black bg-gray-100 text-black font-semibold font-serif rounded-md">
          <h1 className="text-blue-500 text-3xl font-semibold text-center">Daily Interpretation</h1>
          <h1 className="text-xl text-blue-500 font-medium text-center">{date}</h1>
          {/* for chart */}
-         <div> 
-        <Bar height={200} data={data} options={options} />
+         <div className='bg-gray-100'> 
+        <Bar height={300} data={data} options={options} />
       </div>
       </div>
       
-      <div className='mt-10 shadow-2xl bg-gray-100 text-black font-semibold font-serif p-4'>
+      <div className='mt-10 shadow-2xl shadow-black bg-gradient-to-b from-black to-gray-500 text-white font-semibold font-serif p-4 rounded-md'>
          <h1 className="text-red-500 text-4xl font-semibold">Physical</h1>
          <p className='text-xl mt-4 mb-5'>During the low phase of your Physical cycle, energy and vitality may feel depleted, leading
           to fatigue. This time calls for rest and recuperation, as physical and sexual activity interest

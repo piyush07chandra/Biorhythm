@@ -19,7 +19,6 @@ const BiorythmCalculator = () => {
       month: 'long',             // Display full month name (e.g., "April")
       day: 'numeric'             // Display the day of the month (e.g., "6")
   };
-  
     var labels = [...Array(31).keys()].map((i) => {
       var currentDate = new Date();
       currentDate.setDate(currentDate.getDate() + i);
@@ -126,21 +125,21 @@ const currentDate=new Date().toLocaleDateString('en-IN', optionss);
  
 
     </div>
-      <div>
+      <div className='bg-gradient-to-t from-red-100 to-orange-500'>
       <canvas className='canvas' style={{height:'150px'}}  ref={chartRef}  ></canvas>
       </div>
     
-      <div className='m-4 p-2 shadow-2xl bg-gray-100 text-center'>
+      <div className='m-4 p-2 shadow-md rounded-md shadow-black bg-gradient-to-b from-black to-gray-500 text-white text-center'>
       <h1 className='text-2xl font-bold'>{currentDate}</h1>
       <h1 className='text-3xl font-semibold text-red-500'>physical:{Math.floor(physical[0])}</h1>
       <h1 className='text-3xl font-semibold text-blue-500'>Emotional:{Math.floor(emotional[0])}</h1>
       <h1 className='text-3xl font-semibold text-green-700'>Intellectual:{Math.floor(intellectual[0])}</h1>
-      <h1 className='text-3xl font-semibold text-gray-500'>Average:{Math.floor(average[0])}</h1>
+      <h1 className='text-3xl font-semibold text-purple-500'>Average:{Math.floor(average[0])}</h1>
       </div>
       
     </div>
 
-    <div className='p-9 m-2 shadow-2xl bg-gray-100 text-black font-semibold font-serif'>
+    <div className='p-9 m-2 shadow-lg bg-gradient-to-b from-black to-gray-500 shadow-black text-white font-semibold font-serif'>
        <h1 className='text-4xl text-blue-800 font-bold mt-8'>The Biorhythms Cycles:</h1>
        <h1 className='text-3xl text-red-600 font-semibold mt-8'>The Physical Cycle</h1>
        <p className='text-xl mt-4'>The Physical cycle, with its 23-day span, touches upon our bodys stamina, strength, and overall

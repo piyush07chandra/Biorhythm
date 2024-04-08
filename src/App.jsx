@@ -1,7 +1,6 @@
 import BiorythmCalculator from "./components/Biorhythm"
 import TheoryOfBiorhythm from "./components/TheoryOfBiorhythm"
 
-import Calculator from "./components/Calculator"
 
 function App() {
 
@@ -9,7 +8,6 @@ function App() {
     <>
       <BiorythmCalculator/>
       <TheoryOfBiorhythm/>
-      <Calculator/>
     </>
   )
 }

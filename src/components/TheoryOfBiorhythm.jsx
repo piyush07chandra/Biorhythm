@@ -3,7 +3,7 @@
 function TheoryOfBiorhythm() {
     return (
       <div>
-      <div className='m-8 p-5 shadow-2xl bg-gray-100 text-black font-semibold font-serif'>
+      <div className='m-8 p-5 shadow-2xl shadow-black bg-gradient-to-b from-black to-gray-500 text-white font-semibold font-serif rounded-md'>
         <h1 className="text-blue-600 text-4xl font-semibold">The theory of Biorhythms</h1>
         <p className='text-xl mt-4 mb-5'>
           Biorhythms, a concept stemming from the 19th century, 
