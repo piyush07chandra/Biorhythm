@@ -33,7 +33,7 @@ function DailyInterpreTation({physical,emotional, intellectual,average}) {
           labelString: 'Value',
         },
         ticks: {
-          min: -100,
+          min: 0,
           max: 100,
           stepSize: 50,
         },

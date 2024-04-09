@@ -15,9 +15,9 @@ const BiorythmCalculator = () => {
     
     const ctx = chartRef.current.getContext('2d');
     var options = {
-      timeZone: 'Asia/Kolkata', // Set the timezone to Indian Standard Time
-      month: 'long',             // Display full month name (e.g., "April")
-      day: 'numeric'             // Display the day of the month (e.g., "6")
+      timeZone: 'Asia/Kolkata', 
+      month: 'long',             
+      day: 'numeric'             
   };
     var labels = [...Array(31).keys()].map((i) => {
       var currentDate = new Date();
@@ -25,8 +25,6 @@ const BiorythmCalculator = () => {
       var month = currentDate.toLocaleString('en-IN', options);
       return   month;
   });
-
-// Adjust labels to wrap around the month
 
     const chartInstance = new Chart(ctx, {
       type: 'line',
@@ -98,22 +96,23 @@ const BiorythmCalculator = () => {
     const millisecondsInDay = 1000 * 60 * 60 * 24;
     const daysSinceBirth = (Date.now() - new Date(dob).getTime()) / millisecondsInDay;
 
-    const physicalData = [...Array(31)].map((_, index) => Math.sin((2 * Math.PI * (daysSinceBirth + index)) / 23) * 100);
-    const emotionalData = [...Array(31)].map((_, index) => Math.sin((2 * Math.PI * (daysSinceBirth + index)) / 28) * 100);
-    const intellectualData = [...Array(31)].map((_, index) => Math.sin((2 * Math.PI * (daysSinceBirth + index)) / 33) * 100);
+    const physicalData = [...Array(31)].map((_, index) => (Math.sin((2 * Math.PI * (daysSinceBirth + index)) / 23) +1 ) *50 );
+    const emotionalData = [...Array(31)].map((_, index) => (Math.sin((2 * Math.PI * (daysSinceBirth + index)) / 28) +1) * 50);
+    const intellectualData = [...Array(31)].map((_, index) => (Math.sin((2 * Math.PI * (daysSinceBirth + index)) / 33) +1) * 50);
     const averageData = physicalData.map((value, index) => (value + emotionalData[index] + intellectualData[index]) / 3);
 
     setPhysical(physicalData);
     setEmotional(emotionalData);
     setIntellectual(intellectualData);
     setAverage(averageData);
+    
   };
   var optionss = {
-    timeZone: 'Asia/Kolkata', // Set the timezone to Indian Standard Time
-    weekday: 'long',           // Display full weekday name (e.g., "Monday")
-    year: 'numeric',           // Display the full numeric year (e.g., "2024")
-    month: 'long',             // Display full month name (e.g., "April")
-    day: 'numeric'             // Display the day of the month (e.g., "6")
+    timeZone: 'Asia/Kolkata', 
+    weekday: 'long',           
+    year: 'numeric',           
+    month: 'long',             
+    day: 'numeric'             
 };
 const currentDate=new Date().toLocaleDateString('en-IN', optionss);
   return (
@@ -139,7 +138,7 @@ const currentDate=new Date().toLocaleDateString('en-IN', optionss);
       
     </div>
 
-    <div className='p-9 m-2 shadow-lg bg-gradient-to-b from-black to-gray-500 shadow-black text-white font-semibold font-serif'>
+    <div className='p-9 m-2 shadow-lg bg-gradient-to-b from-black to-gray-500 shadow-black text-white font-semibold font-serif rounded-md'>
        <h1 className='text-4xl text-blue-800 font-bold mt-8'>The Biorhythms Cycles:</h1>
        <h1 className='text-3xl text-red-600 font-semibold mt-8'>The Physical Cycle</h1>
        <p className='text-xl mt-4'>The Physical cycle, with its 23-day span, touches upon our bodys stamina, strength, and overall
