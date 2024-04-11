@@ -1,7 +1,8 @@
 import { Bar } from 'react-chartjs-2';
 import PropTypes from 'prop-types'; 
+import { prototype } from 'postcss/lib/previous-map';
 
-function DailyInterpreTation({physical,emotional, intellectual,average}) {
+function DailyInterpreTation({physical,emotional, intellectual,average,date}) {
 
    // Data
   const data = {
@@ -41,15 +42,7 @@ function DailyInterpreTation({physical,emotional, intellectual,average}) {
     },
   };
 
-  var optionss = {
-    timeZone: 'Asia/Kolkata', // Set the timezone to Indian Standard Time
-    weekday: 'long',           // Display full weekday name (e.g., "Monday")
-    year: 'numeric',           // Display the full numeric year (e.g., "2024")
-    month: 'long',             // Display full month name (e.g., "April")
-    day: 'numeric'             // Display the day of the month (e.g., "6")
-};
-
-const date=new Date().toLocaleDateString('en-IN', optionss);
+ 
 
   return (
     <div className="p-10 ">
@@ -97,6 +90,7 @@ DailyInterpreTation.propTypes = {
   physical: PropTypes.any,
   emotional: PropTypes.any, 
   intellectual: PropTypes.any, 
-  average: PropTypes.any 
+  average: PropTypes.any,
+  date:prototype.string
 };
 export default DailyInterpreTation
