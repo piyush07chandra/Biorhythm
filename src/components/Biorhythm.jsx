@@ -235,19 +235,19 @@ const handleLabelClick = (index) => {
    
     <div>
     <div className='shadow-2xl bg-gray-100 text-black font-semibold font-serif pb-10 p-2'>
-    <label className='text-center   text-black font-semibold font-serif text-2xl'>Your Date of Birth:  </label>
-      <input className='text-3xlshadow-2xl bg-gray-600 text-white font-semibold font-serif ml-2' type="date" value={dob} onChange={handleDobChange} />
+    <label className='text-center text-black font-semibold font-serif text-2xl'>Your Date of Birth: </label>
+      <input className='text-3xl shadow-2xl bg-gray-600 text-white font-semibold font-serif ml-2' type="date" value={dob} onChange={handleDobChange} />
     </div>
-      <div className='bg-gradient-to-t from-red-100 to-orange-500'>
+      <div className='bg-gradient-to-t to-orange-300 from-orange-500'>
       <canvas className='canvas' style={{height:'150px'}}  ref={chartRef}></canvas>
       </div>
     
-      <div className='m-4 p-2 shadow-md rounded-md shadow-black bg-gradient-to-b from-black to-gray-500 text-white text-center'>
-      <h1 className=' text-lg font-serif'>You can see the values for different days by clicking these buttons</h1>
+      
+      <div className='pl-5 py-1 z-50 -mt-14 bg-slate-600'>
   {labels.map((label, index) => (
     <button 
       key={index}
-      className="bg-gray-300 text-black p-1 hover:bg-yellow-500 rounded-md font-semibold m-1"
+      className="text-xs bg-orange-500 text-black p-1 hover:bg-white rounded-md font-semibold ml-1 h-12 w-9"
       onClick={() => handleLabelClick(index)}
     >
       {label}
